@@ -6,10 +6,19 @@
 
     <servlet>
         <servlet-name>ListFiles</servlet-name>
+        <servlet-class>controller.ListFilesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Preprocess</servlet-name>
+        <servlet-class>controller.PreprocessingServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
         <servlet-name>ListFiles</servlet-name>
         <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Preprocess</servlet-name>
+        <url-pattern>/precall</url-pattern>
     </servlet-mapping>
 </web-app>

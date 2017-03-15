@@ -8,7 +8,7 @@ import java.util.List;
  */
 public interface FileHandler {
 
-    public List<String> getFiles();
+    public List<String> getFilesNames();
 
     public File getFile(String fileName);
 
