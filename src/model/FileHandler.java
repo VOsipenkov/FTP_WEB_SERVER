@@ -1,6 +1,7 @@
 package model;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -15,4 +16,6 @@ public interface FileHandler {
     public boolean deleteFile(String fileName);
 
     public boolean addFile(File file);
+
+    public boolean addFile(String name, InputStream inputStream);
 }

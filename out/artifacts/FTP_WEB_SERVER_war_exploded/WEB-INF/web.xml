@@ -21,8 +21,12 @@
         <servlet-class>controller.DownloadFileServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Load</servlet-name>
-        <servlet-class>controller.LoadFileServlet</servlet-class>
+        <servlet-name>Upload</servlet-name>
+        <servlet-class>controller.UploadFileServlet</servlet-class>
+        <multipart-config>
+            <max-file-size>3145728</max-file-size>
+            <max-request-size>5242880</max-request-size>
+        </multipart-config>
     </servlet>
 
     <servlet-mapping>
@@ -42,7 +46,7 @@
         <url-pattern>/download</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Load</servlet-name>
-        <url-pattern>/load</url-pattern>
+        <servlet-name>Upload</servlet-name>
+        <url-pattern>/upload</url-pattern>
     </servlet-mapping>
 </web-app>

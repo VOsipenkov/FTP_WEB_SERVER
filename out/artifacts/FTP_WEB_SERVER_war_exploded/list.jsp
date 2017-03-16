@@ -25,7 +25,7 @@
     <br><br><br>
     <p><input name="action" type="radio" value="delete">Delete</p>
     <p><input name="action" type="radio" value="download"> Download</p>
-    <p><input name="action" type="radio" value="load"> Add file</p>
+    <p><input name="action" type="radio" value="upload"> Add file</p>
     <br>
     <input type="submit" name="Update">
 </form>

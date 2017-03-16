@@ -26,8 +26,8 @@ public class PreprocessingServlet extends HttpServlet {
             case "download":
                 resp.sendRedirect("http://localhost:8080/download");
                 break;
-            case "load":
-                resp.sendRedirect("http://localhost:8080/load");
+            case "upload":
+                resp.sendRedirect("http://localhost:8080/uploadPage.html");
             default:
                 break;
         }
