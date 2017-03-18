@@ -1,7 +1,6 @@
 package model;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,7 +8,11 @@ import java.util.List;
  * Created by 21cmPC on 14.03.2017.
  */
 public class FilesHandlerImpl implements FileHandler {
-    private static final String filesPath = "C:\\workspace\\FTP_WEB_SERVER\\files";
+    private String filesPath;
+
+    public FilesHandlerImpl(String filesPath) {
+        this.filesPath = filesPath;
+    }
 
     @Override
     public List<String> getFilesNames() {
@@ -18,8 +21,8 @@ public class FilesHandlerImpl implements FileHandler {
         if (filesFolder != null && filesFolder.exists()) {
             return getAllFilesInDir(filesFolder);
         } else if (filesFolder != null) {
-            boolean success = filesFolder.mkdir();
-            if (!success) {
+            boolean isSuccess = filesFolder.mkdir();
+            if (!isSuccess) {
                 System.err.println("can't create files folder");
                 return new LinkedList<>();
             }

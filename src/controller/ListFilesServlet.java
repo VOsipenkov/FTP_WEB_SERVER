@@ -1,8 +1,6 @@
 package controller;
 
 import model.FileHandler;
-import model.FilesHandlerImpl;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +17,7 @@ public class ListFilesServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        model = new FilesHandlerImpl();
+        model = (FileHandler) getServletContext().getAttribute("fileHandler");
     }
 
     @Override

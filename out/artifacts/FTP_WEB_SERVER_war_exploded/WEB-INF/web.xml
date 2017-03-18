@@ -49,4 +49,14 @@
         <servlet-name>Upload</servlet-name>
         <url-pattern>/upload</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>filesRepoPath</param-name>
+        <param-value>C:\workspace\FTP_WEB_SERVER\files\</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>listener.ContextStartedListener</listener-class>
+    </listener>
+
 </web-app>
