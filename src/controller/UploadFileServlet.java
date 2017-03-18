@@ -1,6 +1,7 @@
 package controller;
 
 import model.FileHandler;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +31,7 @@ public class UploadFileServlet extends HttpServlet {
         InputStream fileContent = filePart.getInputStream();
 
         model.addFile(fileName, fileContent);
+        fileContent.close();
 
         resp.sendRedirect("http://localhost:8080/list");
     }

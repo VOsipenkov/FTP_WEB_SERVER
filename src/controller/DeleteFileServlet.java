@@ -24,7 +24,7 @@ public class DeleteFileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fileName = (String)getServletContext().getAttribute("fileName");
-        model.deleteFile(fileName);
+        boolean isRemovedSuccess = model.deleteFile(fileName);
 
         resp.sendRedirect("http://localhost:8080/list");
     }

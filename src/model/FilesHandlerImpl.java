@@ -88,6 +88,8 @@ public class FilesHandlerImpl implements FileHandler {
             while ((read = inputStream.read(bytes)) != -1) {
                 fileOutputStream.write(bytes, 0, read);
             }
+            fileOutputStream.close();
+
             return true;
         } catch (IOException e) {
             e.printStackTrace();

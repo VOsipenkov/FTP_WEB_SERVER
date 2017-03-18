@@ -19,6 +19,11 @@ public class PreprocessingServlet extends HttpServlet {
 
         getServletContext().setAttribute("fileName", fileName);
 
+        if (action == null) {
+            resp.sendRedirect("http://localhost:8080/list");
+            return;
+        }
+
         switch (action) {
             case "delete":
                 resp.sendRedirect("http://localhost:8080/delete");
@@ -28,8 +33,9 @@ public class PreprocessingServlet extends HttpServlet {
                 break;
             case "upload":
                 resp.sendRedirect("http://localhost:8080/uploadPage.html");
-            default:
                 break;
+            default:
+                resp.sendRedirect("http://localhost:8080/list");
         }
     }
 }
