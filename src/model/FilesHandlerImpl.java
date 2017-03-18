@@ -1,6 +1,9 @@
 package model;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -42,8 +45,16 @@ public class FilesHandlerImpl implements FileHandler {
     }
 
     @Override
-    public File getFile(String fileName) {
-        return null;
+    public byte[] getFile(String fileName) {
+        fileName = fileName.replace("\r", "").replace("\n", "");
+        Path path = Paths.get(filesPath + fileName);
+        try {
+            return Files.readAllBytes(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return new byte[1];
     }
 
     @Override
