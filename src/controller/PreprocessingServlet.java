@@ -17,7 +17,7 @@ public class PreprocessingServlet extends HttpServlet {
         String fileName = req.getParameter("file");
         String action = req.getParameter("action");
 
-        this.getServletContext().setAttribute("fileName", fileName);
+        getServletContext().setAttribute("fileName", fileName);
 
         switch (action) {
             case "delete":

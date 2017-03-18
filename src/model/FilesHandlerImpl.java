@@ -48,6 +48,12 @@ public class FilesHandlerImpl implements FileHandler {
 
     @Override
     public boolean deleteFile(String fileName) {
+        fileName = fileName.replace("\r", "").replace("\n", "");
+        File file = new File(filesPath + fileName);
+        if (file.exists()) {
+            return file.delete();
+        }
+
         return false;
     }
 
