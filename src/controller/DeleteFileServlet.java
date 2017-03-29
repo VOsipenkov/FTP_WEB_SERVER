@@ -1,6 +1,7 @@
 package controller;
 
 import model.FileHandler;
+import model.FileLogger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +14,14 @@ import java.io.PrintWriter;
  * Created by 21cmPC on 15.03.2017.
  */
 public class DeleteFileServlet extends HttpServlet {
-    FileHandler model;
+    private FileHandler model;
+    private FileLogger logger;
 
     @Override
     public void init() throws ServletException {
         super.init();
         model = (FileHandler) getServletContext().getAttribute("fileHandler");
+        logger = (FileLogger) getServletContext().getAttribute("logger");
     }
 
     @Override

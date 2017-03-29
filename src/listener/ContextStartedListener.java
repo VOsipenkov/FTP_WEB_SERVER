@@ -1,10 +1,14 @@
 package listener;
 
 import model.FileHandler;
+import model.FileLogger;
+import model.FileLoggerImpl;
 import model.FilesHandlerImpl;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by 21cmPC on 18.03.2017.
@@ -12,11 +16,23 @@ import javax.servlet.ServletContextListener;
 public class ContextStartedListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        String path = servletContextEvent.getServletContext().getInitParameter("filesRepoPath");
+        String path = servletContextEvent.getServletContext().getInitParameter("loggerPath");
+        File file = new File(path);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        FileLogger logger = new FileLoggerImpl(path);
+        servletContextEvent.getServletContext().setAttribute("logger", logger);
+
+        path = servletContextEvent.getServletContext().getInitParameter("filesRepoPath");
         FileHandler fileHandler = new FilesHandlerImpl(path);
 
         servletContextEvent.getServletContext().setAttribute("fileHandler", fileHandler);
-        System.err.println("context initialized");
+        logger.log("context initialized");
     }
 
     @Override

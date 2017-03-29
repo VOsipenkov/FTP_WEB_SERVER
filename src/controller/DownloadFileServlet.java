@@ -1,6 +1,7 @@
 package controller;
 
 import model.FileHandler;
+import model.FileLogger;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -17,11 +18,13 @@ import java.io.PrintWriter;
  */
 public class DownloadFileServlet extends HttpServlet {
     private FileHandler model;
+    private FileLogger logger;
 
     @Override
     public void init() throws ServletException {
         super.init();
         model = (FileHandler) getServletContext().getAttribute("fileHandler");
+        logger = (FileLogger) getServletContext().getAttribute("logger");
     }
 
     @Override
