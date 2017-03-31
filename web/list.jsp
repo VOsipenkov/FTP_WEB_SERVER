@@ -1,4 +1,5 @@
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Date" %><%--
   Created by IntelliJ IDEA.
   User: 21cmPC
   Date: 15.03.2017
@@ -28,6 +29,14 @@
     <p><input name="action" type="radio" value="upload"> Add file</p>
     <br>
     <input type="submit" name="Update">
+    <br><br><br><br><br>
+    <p align="right"><font color="black">
+        <%
+            String userName = (String) request.getSession().getAttribute("userName");
+            out.print("User:" + userName);
+            out.flush();
+        %>
+    </font></p>
 </form>
 
 </body>
