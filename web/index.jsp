@@ -7,10 +7,18 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+</head>
+<body>
+
+<%
+    String userName = (String) request.getSession().getAttribute("userName");
+    if (userName != null) {
+        response.sendRedirect("http://localhost:8080/list");}
+    else{
+        response.sendRedirect("http://localhost:8080/login.html");
+    }
+%>
+</body>
 </html>
