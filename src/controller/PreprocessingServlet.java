@@ -32,7 +32,7 @@ public class PreprocessingServlet extends HttpServlet {
                 resp.sendRedirect("http://localhost:8080/download");
                 break;
             case "upload":
-                resp.sendRedirect("http://localhost:8080/uploadPage.html");
+                resp.sendRedirect("http://localhost:8080/UploadPage.jsp");
                 break;
             default:
                 resp.sendRedirect("http://localhost:8080/list");

@@ -31,7 +31,13 @@ public class DownloadFileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         OutputStream out = resp.getOutputStream();
 
-        byte[] fileAsBytes = model.getFile((String) getServletContext().getAttribute("fileName"));
-        out.write(fileAsBytes);
+        String fileName = (String) getServletContext().getAttribute("fileName");
+        if (fileName != null && !fileName.trim().equals("")) {
+            byte[] fileAsBytes = model.getFile(fileName);
+            out.write(fileAsBytes);
+        } else {
+            resp.sendRedirect("http://localhost:8080/list");
+        }
+
     }
 }
