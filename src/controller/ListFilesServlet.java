@@ -4,6 +4,7 @@ import model.FileHandler;
 import model.FileLogger;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,6 +31,11 @@ public class ListFilesServlet extends HttpServlet {
         resp.setContentType("text/html");
 
         req.setAttribute("list", files);
+
+        Cookie cookie = new Cookie("userName", (String) req.getSession().getAttribute("userName"));
+        cookie.setMaxAge(2 * 60);
+        resp.addCookie(cookie);
+
         req.getRequestDispatcher("list.jsp").forward(req, resp);
     }
 }
