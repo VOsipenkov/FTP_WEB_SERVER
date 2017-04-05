@@ -31,7 +31,7 @@
     if (userName != null) {
         response.sendRedirect("http://localhost:8080/list");
     } else {
-        response.sendRedirect("http://localhost:8080/login.html");
+        response.sendRedirect("http://localhost:8080/login.jsp");
     }
 %>
 </body>
