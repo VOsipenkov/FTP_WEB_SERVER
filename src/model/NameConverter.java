@@ -5,9 +5,9 @@ package model;
  */
 public class NameConverter {
     private String nameForCheck;
-    private final static String VALID_SYMBOLS = "0123456789_-";
     public final static String NOT_VALID_NAME = "not_valid_user_name";
     private static String russianChars = "абвгдеёжзиклмнопрстуфхчшщьыъэюя";
+
     private static String[] charsToExchange = {"a","b","v","g","d","e","yo","zh","z",
     "e", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "ph", "h", "ch", "sh", "sh'", "'", "y", "", "a", "u", "ya"};
 

@@ -12,7 +12,7 @@ import java.io.IOException;
  * Created by 21cmPC on 29.03.2017.
  */
 public class LoginServlet extends HttpServlet {
-private NameConverter nameConverter= new NameConverter();
+    private NameConverter nameConverter = new NameConverter();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

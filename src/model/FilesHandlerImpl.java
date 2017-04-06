@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,13 +28,13 @@ public class FilesHandlerImpl implements FileHandler {
             boolean isSuccess = filesFolder.mkdir();
             if (!isSuccess) {
                 System.err.println("can't create files folder");
-                return new LinkedList<>();
+                return Collections.emptyList();
             }
 
             return getAllFilesInDir(filesFolder);
         }
 
-        return new LinkedList<>();
+        return Collections.emptyList();
     }
 
     private List<String> getAllFilesInDir(File file) {
@@ -69,11 +70,6 @@ public class FilesHandlerImpl implements FileHandler {
     }
 
     @Override
-    public boolean addFile(File file) {
-        return false;
-    }
-
-    @Override
     public boolean addFile(String name, InputStream inputStream) {
         File file = new File(filesPath + name);
         if (file.exists()) {
@@ -96,6 +92,5 @@ public class FilesHandlerImpl implements FileHandler {
         }
         return false;
     }
-
 
 }
