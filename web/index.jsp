@@ -13,22 +13,25 @@
 <body>
 
 <%
-    String userName = null;
-    Cookie[] cookies = request.getCookies();
-    if (cookies != null) {
-        for (Cookie cookie : cookies) {
-            if ((cookie.getName().equals("userName")) && (cookie.getValue() != null) && (!cookie.getValue().equals(""))) {
-                userName = cookie.getValue();
-                request.getSession().setAttribute("userName", userName);
-                break;
+    //case for anonimous enter and return to start page
+    String userName = (String) request.getSession().getAttribute("userName");
+
+    if (userName == null) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ((cookie.getName().equals("userName")) && (cookie.getValue() != null) && (!cookie.getValue().equals(""))) {
+                    userName = cookie.getValue();
+                    request.getSession().setAttribute("userName", userName);
+                    break;
+                }
             }
         }
     }
-
     if (userName != null) {
         response.sendRedirect(response.encodeRedirectURL("http://localhost:8080/list"));
     } else {
-        response.sendRedirect("http://localhost:8080/login.jsp");
+        response.sendRedirect(response.encodeRedirectURL("http://localhost:8080/login.jsp"));
     }
 %>
 </body>

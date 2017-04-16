@@ -13,8 +13,8 @@
 <body>
 <p align="center">Choose file to upload</p><br>
 
-<form action="upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" />
+<form action="<%=response.encodeURL("upload")%>"  method="post" enctype="multipart/form-data">
+    <input type="file" name="file"/>
     <input type="submit" value="Upload"/>
     <br><br><br><br><br>
     <p align="right"><font color="black">

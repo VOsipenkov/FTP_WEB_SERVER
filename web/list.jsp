@@ -17,7 +17,7 @@
     List<String> files = (List<String>) request.getAttribute("list");
 %>
 
-<form method="get" action="precall">
+<form method="get" action="<%= response.encodeURL("precall")%>">
     <% for (String item : files) { %>
 
     <input name="file" type="radio" value="<%out.print(item.toString());%>"> <% out.print(item); %> <br>

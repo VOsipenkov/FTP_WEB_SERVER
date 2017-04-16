@@ -36,6 +36,6 @@ public class UploadFileServlet extends HttpServlet {
         model.addFile(fileName, fileContent);
         fileContent.close();
 
-        resp.sendRedirect("http://localhost:8080/list");
+        resp.sendRedirect(resp.encodeRedirectURL("http://localhost:8080/list"));
     }
 }
