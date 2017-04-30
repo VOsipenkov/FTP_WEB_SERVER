@@ -29,9 +29,9 @@
         }
     }
     if (userName != null) {
-        response.sendRedirect(response.encodeRedirectURL("http://localhost:8080/list"));
+        response.sendRedirect(response.encodeRedirectURL("./list"));
     } else {
-        response.sendRedirect(response.encodeRedirectURL("http://localhost:8080/login.jsp"));
+        response.sendRedirect(response.encodeRedirectURL("./login.jsp"));
     }
 %>
 </body>

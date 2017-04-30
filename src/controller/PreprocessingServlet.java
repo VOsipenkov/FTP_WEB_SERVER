@@ -20,22 +20,22 @@ public class PreprocessingServlet extends HttpServlet {
         getServletContext().setAttribute("fileName", fileName);
 
         if (action == null) {
-            resp.sendRedirect(resp.encodeRedirectURL("http://localhost:8080/list"));
+            resp.sendRedirect(resp.encodeRedirectURL("./list"));
             return;
         }
 
         switch (action) {
             case "delete":
-                resp.sendRedirect(resp.encodeRedirectURL("http://localhost:8080/delete"));
+                resp.sendRedirect(resp.encodeRedirectURL("./delete"));
                 break;
             case "download":
-                resp.sendRedirect(resp.encodeRedirectURL("http://localhost:8080/download"));
+                resp.sendRedirect(resp.encodeRedirectURL("./download"));
                 break;
             case "upload":
-                resp.sendRedirect(resp.encodeRedirectURL("http://localhost:8080/UploadPage.jsp"));
+                resp.sendRedirect(resp.encodeRedirectURL("./UploadPage.jsp"));
                 break;
             default:
-                resp.sendRedirect(resp.encodeRedirectURL("http://localhost:8080/list"));
+                resp.sendRedirect(resp.encodeRedirectURL("./list"));
         }
     }
 }

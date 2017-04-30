@@ -24,6 +24,6 @@ public class LoginServlet extends HttpServlet {
             req.getSession().setAttribute("userName", name);
         }
 
-        resp.sendRedirect(resp.encodeRedirectURL("http://localhost:8080/list"));
+        resp.sendRedirect(resp.encodeRedirectURL("./list"));
     }
 }

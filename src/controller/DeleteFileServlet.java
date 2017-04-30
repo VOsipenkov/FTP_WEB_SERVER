@@ -29,6 +29,6 @@ public class DeleteFileServlet extends HttpServlet {
         String fileName = (String)getServletContext().getAttribute("fileName");
         boolean isRemovedSuccess = model.deleteFile(fileName);
 
-        resp.sendRedirect(resp.encodeRedirectURL("http://localhost:8080/list"));
+        resp.sendRedirect(resp.encodeRedirectURL("./list"));
     }
 }

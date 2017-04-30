@@ -36,6 +36,6 @@ public class ListFilesServlet extends HttpServlet {
         cookie.setMaxAge(2 * 60);
         resp.addCookie(cookie);
 
-        req.getRequestDispatcher(resp.encodeRedirectURL("list.jsp")).forward(req, resp);
+        req.getRequestDispatcher(resp.encodeRedirectURL("./list.jsp")).forward(req, resp);
     }
 }

@@ -36,7 +36,7 @@ public class DownloadFileServlet extends HttpServlet {
             byte[] fileAsBytes = model.getFile(fileName);
             out.write(fileAsBytes);
         } else {
-            resp.sendRedirect(resp.encodeRedirectURL("http://localhost:8080/list"));
+            resp.sendRedirect(resp.encodeRedirectURL("./list"));
         }
 
     }
