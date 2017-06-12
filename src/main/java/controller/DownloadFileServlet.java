@@ -13,9 +13,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
-/**
- * Created by 21cmPC on 15.03.2017.
- */
 public class DownloadFileServlet extends HttpServlet {
     private FileHandler model;
     private FileLogger logger;

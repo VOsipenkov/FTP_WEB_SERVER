@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- * Created by 21cmPC on 15.03.2017.
- */
 public class DeleteFileServlet extends HttpServlet {
     private FileHandler model;
     private FileLogger logger;
@@ -26,7 +23,7 @@ public class DeleteFileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String fileName = (String)getServletContext().getAttribute("fileName");
+        String fileName = (String) getServletContext().getAttribute("fileName");
         boolean isRemovedSuccess = model.deleteFile(fileName);
 
         resp.sendRedirect(resp.encodeRedirectURL("./list"));
