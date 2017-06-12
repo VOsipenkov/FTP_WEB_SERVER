@@ -9,7 +9,7 @@ public class NameConverter {
     private static String russianChars = "абвгдеёжзиклмнопрстуфхчшщьыъэюя";
 
     private static String[] charsToExchange = {"a","b","v","g","d","e","yo","zh","z",
-    "e", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "ph", "h", "ch", "sh", "sh'", "'", "y", "", "a", "u", "ya"};
+    "i", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "ph", "h", "ch", "sh", "sh'", "'", "y", "", "a", "u", "ya"};
 
     public String doCheck(String nameForCheck) {
         this.nameForCheck = nameForCheck;

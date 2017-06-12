@@ -18,11 +18,8 @@
     <input type="submit" value="Upload"/>
     <br><br><br><br><br>
     <p align="right"><font color="black">
-        <%
-            String userName = (String) request.getSession().getAttribute("userName");
-            out.print("User:" + userName);
-            out.flush();
-        %>
+        <%@ taglib prefix="lists" uri="ElFunctions" %>
+        ${lists:userName(sessionScope.userName)}
     </font></p>
 </form>
 </body>
