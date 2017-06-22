@@ -32,6 +32,15 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>controller.LoginServlet</servlet-class>
     </servlet>
+    <filter>
+        <filter-name>HeaderFilter</filter-name>
+        <filter-class>filters.HeaderFilter</filter-class>
+        <init-param>
+            <name>active</name>
+            <value>true</value>
+        </init-param>
+    </filter>
+
 
     <servlet-mapping>
         <servlet-name>ListFiles</servlet-name>
@@ -57,6 +66,10 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+    <filter-mapping>
+        <filter-name>HeaderFilter</filter-name>
+        <servlet-name>*</servlet-name>
+    </filter-mapping>
 
     <context-param>
         <param-name>filesRepoPath</param-name>
