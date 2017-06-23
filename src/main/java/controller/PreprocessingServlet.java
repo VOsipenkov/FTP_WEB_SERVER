@@ -10,7 +10,7 @@ import java.io.IOException;
 public class PreprocessingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
+//        resp.setContentType("text/html");
 
         String fileName = req.getParameter("file");
         String action = req.getParameter("action");
@@ -24,7 +24,7 @@ public class PreprocessingServlet extends HttpServlet {
 
         switch (action) {
             case "delete":
-                resp.sendRedirect(resp.encodeRedirectURL("./delete"));
+                resp.sendRedirect(resp.encodeRedirectURL("/FTP_WEB_SERVER/delete"));
                 break;
             case "download":
                 resp.sendRedirect(resp.encodeRedirectURL("./download"));

@@ -73,11 +73,11 @@
 
     <context-param>
         <param-name>filesRepoPath</param-name>
-        <param-value>files\</param-value>
+        <param-value>files\\</param-value>
     </context-param>
     <context-param>
         <param-name>loggerPath</param-name>
-        <param-value>files\logs\logger.txt</param-value>
+        <param-value>files\\logs\\logger.txt</param-value>
     </context-param>
 
     <listener>
