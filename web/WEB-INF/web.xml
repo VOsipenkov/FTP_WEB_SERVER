@@ -35,10 +35,10 @@
     <filter>
         <filter-name>HeaderFilter</filter-name>
         <filter-class>filters.HeaderFilter</filter-class>
-        <init-param>
-            <name>active</name>
-            <value>true</value>
-        </init-param>
+        <!--<init-param>-->
+            <!--<name>active</name>-->
+            <!--<value>true</value>-->
+        <!--</init-param>-->
     </filter>
 
 
