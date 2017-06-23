@@ -16,24 +16,23 @@ import java.io.IOException;
 public class ContextStartedListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        int i = 1;
-//        String path = servletContextEvent.getServletContext().getInitParameter("loggerPath");
-//        File file = new File(path);
-//        if (!file.exists()) {
-//            try {
-//                file.createNewFile();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        FileLogger logger = new FileLoggerImpl(path);
-//        servletContextEvent.getServletContext().setAttribute("logger", logger);
-//
-//        path = servletContextEvent.getServletContext().getInitParameter("filesRepoPath");
-//        FileHandler fileHandler = new FilesHandlerImpl(path);
-//
-//        servletContextEvent.getServletContext().setAttribute("fileHandler", fileHandler);
-//        logger.log("context initialized");
+        String path = servletContextEvent.getServletContext().getInitParameter("loggerPath");
+        File file = new File(path);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        FileLogger logger = new FileLoggerImpl(path);
+        servletContextEvent.getServletContext().setAttribute("logger", logger);
+
+        path = servletContextEvent.getServletContext().getInitParameter("filesRepoPath");
+        FileHandler fileHandler = new FilesHandlerImpl(path);
+
+        servletContextEvent.getServletContext().setAttribute("fileHandler", fileHandler);
+        logger.log("context initialized");
     }
 
     @Override
