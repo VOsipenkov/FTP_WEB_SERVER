@@ -11,7 +11,7 @@
     <title>$Title$</title>
 </head>
 <body>
-
+HELLO
 <%
     //case for anonimous enter and return to start page
     String userName = (String) request.getSession().getAttribute("userName");
