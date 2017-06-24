@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by 21cmPC on 29.03.2017.
- */
 public class LoginServlet extends HttpServlet {
     private NameConverter nameConverter = new NameConverter();
 

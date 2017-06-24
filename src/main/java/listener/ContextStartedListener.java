@@ -10,9 +10,6 @@ import javax.servlet.ServletContextListener;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by 21cmPC on 18.03.2017.
- */
 public class ContextStartedListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {

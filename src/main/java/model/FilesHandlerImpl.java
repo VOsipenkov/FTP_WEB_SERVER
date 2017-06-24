@@ -8,9 +8,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by 21cmPC on 14.03.2017.
- */
 public class FilesHandlerImpl implements FileHandler {
     private String filesPath;
 

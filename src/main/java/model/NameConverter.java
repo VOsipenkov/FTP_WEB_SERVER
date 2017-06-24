@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by 21cmPC on 04.04.2017.
- */
 public class NameConverter {
     private String nameForCheck;
     public final static String NOT_VALID_NAME = "not_valid_user_name";

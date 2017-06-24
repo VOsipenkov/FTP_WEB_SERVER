@@ -12,9 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by 21cmPC on 14.03.2017.
- */
 public class ListFilesServlet extends HttpServlet {
     private FileHandler model;
     private FileLogger logger;
