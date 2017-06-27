@@ -33,12 +33,13 @@ public class UploadFileServlet extends HttpServlet {
         String fileName = getSubmittedFileName(filePart);
         InputStream fileContent = filePart.getInputStream();
 
-        boolean success = model.addFile("TEST_NAME_OF_FILE", fileContent);
+        boolean success = model.addFile(fileName, fileContent);
         fileContent.close();
 
         resp.sendRedirect(resp.encodeRedirectURL("./list"));
     }
 
+    // https://stackoverflow.com/questions/2422468/how-to-upload-files-to-server-using-jsp-servlet
     private static String getSubmittedFileName(Part part) {
         for (String cd : part.getHeader("content-disposition").split(";")) {
             if (cd.trim().startsWith("filename")) {
