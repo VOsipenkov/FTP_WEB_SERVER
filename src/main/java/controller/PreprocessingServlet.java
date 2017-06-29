@@ -5,16 +5,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 
 public class PreprocessingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        resp.setContentType("text/html");
-
         String fileName = req.getParameter("file");
-        String action = req.getParameter("action");
 
+        if (fileName != null) {
+            byte[] bytes = fileName.getBytes(StandardCharsets.ISO_8859_1);//fix from https://stackoverflow.com/questions/16527576/httpservletrequest-utf-8-encoding
+            fileName = new String(bytes, StandardCharsets.UTF_8);
+        }
+
+        String action = req.getParameter("action");
         getServletContext().setAttribute("fileName", fileName);
 
         if (action == null) {
@@ -24,7 +28,7 @@ public class PreprocessingServlet extends HttpServlet {
 
         switch (action) {
             case "delete":
-                resp.sendRedirect(resp.encodeRedirectURL("/FTP_WEB_SERVER/delete"));
+                resp.sendRedirect(resp.encodeRedirectURL("./delete"));
                 break;
             case "download":
                 resp.sendRedirect(resp.encodeRedirectURL("./download"));
