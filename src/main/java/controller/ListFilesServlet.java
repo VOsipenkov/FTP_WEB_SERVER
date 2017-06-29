@@ -26,14 +26,9 @@ public class ListFilesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<String> files = model.getFilesNames();
-
-//        resp.setContentType("text/html");
-
         req.setAttribute("list", files);
-
         Cookie cookie = new Cookie("userName", (String) req.getSession().getAttribute("userName"));
         cookie.setMaxAge(2 * 60);
-//        resp.addCookie(cookie);//todo fix issue
 
         req.getRequestDispatcher(resp.encodeRedirectURL("./list.jsp")).forward(req, resp);
     }

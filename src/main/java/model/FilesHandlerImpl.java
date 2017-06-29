@@ -44,7 +44,7 @@ public class FilesHandlerImpl implements FileHandler {
 
     @Override
     public byte[] getFile(String fileName) {
-        fileName = fileName.replace("\r", "").replace("\n", "");
+        fileName = fileName.replace("\r", "").replace("\n", "").trim();
         Path path = Paths.get(filesPath + fileName);
         try {
             return Files.readAllBytes(path);

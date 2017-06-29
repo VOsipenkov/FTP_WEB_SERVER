@@ -12,7 +12,6 @@ public class PreprocessingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fileName = req.getParameter("file");
-
         if (fileName != null) {
             byte[] bytes = fileName.getBytes(StandardCharsets.ISO_8859_1);//fix from https://stackoverflow.com/questions/16527576/httpservletrequest-utf-8-encoding
             fileName = new String(bytes, StandardCharsets.UTF_8);
