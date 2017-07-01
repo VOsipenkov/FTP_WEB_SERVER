@@ -32,14 +32,14 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>controller.LoginServlet</servlet-class>
     </servlet>
-    <!--<filter>-->
-        <!--<filter-name>HeaderFilter</filter-name>-->
-        <!--<filter-class>filters.HeaderFilter</filter-class>-->
-        <!--&lt;!&ndash;<init-param>&ndash;&gt;-->
-            <!--&lt;!&ndash;<name>active</name>&ndash;&gt;-->
-            <!--&lt;!&ndash;<value>true</value>&ndash;&gt;-->
-        <!--&lt;!&ndash;</init-param>&ndash;&gt;-->
-    <!--</filter>-->
+    <filter>
+        <filter-name>HeaderFilter</filter-name>
+        <filter-class>filters.HeaderFilter</filter-class>
+        <!--<init-param>-->
+            <!--<name>active</name>-->
+            <!--<value>true</value>-->
+        <!--</init-param>-->
+    </filter>
 
 
     <servlet-mapping>
@@ -66,10 +66,10 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
-    <!--<filter-mapping>-->
-        <!--<filter-name>HeaderFilter</filter-name>-->
-        <!--<servlet-name>*</servlet-name>-->
-    <!--</filter-mapping>-->
+    <filter-mapping>
+        <filter-name>HeaderFilter</filter-name>
+        <servlet-name>*</servlet-name>
+    </filter-mapping>
 
     <context-param>
         <param-name>filesRepoPath</param-name>
