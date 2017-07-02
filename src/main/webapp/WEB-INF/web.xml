@@ -33,12 +33,16 @@
         <servlet-class>controller.LoginServlet</servlet-class>
     </servlet>
     <filter>
-        <filter-name>HeaderFilter</filter-name>
-        <filter-class>filters.HeaderFilter</filter-class>
+        <filter-name>HeaderFilterApp</filter-name>
+        <filter-class>filters.HeaderFilterApp</filter-class>
         <!--<init-param>-->
             <!--<name>active</name>-->
             <!--<value>true</value>-->
         <!--</init-param>-->
+    </filter>
+    <filter>
+        <filter-name>RemoteAddressFilter</filter-name>
+        <filter-class>filters.RemoteAddressFilter</filter-class>
     </filter>
 
 
@@ -67,8 +71,12 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <filter-mapping>
-        <filter-name>HeaderFilter</filter-name>
+        <filter-name>HeaderFilterApp</filter-name>
         <servlet-name>*</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>RemoteAddressFilter</filter-name>
+        <url-pattern>*</url-pattern>
     </filter-mapping>
 
     <context-param>
