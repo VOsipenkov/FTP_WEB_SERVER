@@ -1,0 +1,15 @@
+чтобы развернуть war на сервере томкат:
+
+1.идешь в томкат, в папку config
+
+2. прописываешь там это
+<role rolename="manager-gui"/>
+<user username="tomcat" password="s3cret" roles="manager-gui"/>
+
+3. стартуешь томкат
+
+4. идешь в localhost:8080/manager-gui
+
+5. в самом-самом низу жмякаешь на деплой, выбираешь свой war-файл(он в target/*)
+
+6 готово
