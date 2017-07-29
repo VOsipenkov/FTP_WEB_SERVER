@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<%@page pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8");%>
 <p align="center">Choose file to upload</p><br>
 
 <form action="<%=response.encodeURL("upload")%>"  method="post" enctype="multipart/form-data">

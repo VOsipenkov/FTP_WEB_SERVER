@@ -1,0 +1,8 @@
+filter request format
+POST http://localhost:8080/FTP_WEB_SERVER/list/filter
+
+{
+	"containsNumber" : false,
+	"containsChar" : false,
+	"containsWord" : "log"
+}

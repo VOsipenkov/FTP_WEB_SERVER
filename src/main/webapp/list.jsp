@@ -7,6 +7,8 @@
 <p align="center">FTP_SERVER: list files</p>
 
 <%@ taglib prefix="lists" uri="ElFunctions" %>
+<%@page pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8");%>
 <form method="get" action="<%= response.encodeURL("precall")%>">
 
     ${lists:listFiles(requestScope.list)}

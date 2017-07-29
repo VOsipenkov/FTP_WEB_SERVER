@@ -44,8 +44,15 @@
         <filter-name>RemoteAddressFilter</filter-name>
         <filter-class>filters.RemoteAddressFilter</filter-class>
     </filter>
+    <servlet>
+        <servlet-name>FilterByParams</servlet-name>
+        <servlet-class>controller.ListFilesWithFilter</servlet-class>
+    </servlet>
 
-
+    <servlet-mapping>
+        <servlet-name>FilterByParams</servlet-name>
+        <url-pattern>/list/filter</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListFiles</servlet-name>
         <url-pattern>/list</url-pattern>

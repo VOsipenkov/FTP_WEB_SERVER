@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<%@page pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8");%>
 <H1 align="Center">Welcome to FTP Server</H1>
 <br><br><br>
 <form method="get" action= "<%= response.encodeURL("login")%>">

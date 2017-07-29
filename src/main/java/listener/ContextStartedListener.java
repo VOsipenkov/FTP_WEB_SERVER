@@ -4,7 +4,6 @@ import model.FileHandler;
 import model.FileLogger;
 import model.FileLoggerImpl;
 import model.FilesHandlerImpl;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import java.io.File;

@@ -1,13 +1,9 @@
 package filters;
 
-
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-/**
- * Created by 21cmPC on 02.07.2017.
- */
 public class RemoteAddressFilter implements Filter{
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,6 +33,41 @@ public class FilesHandlerImpl implements FileHandler {
         }
 
         return Collections.emptyList();
+    }
+
+    @Override
+    public List<String> getFilesNames(Filter filter) {
+        List<String> filteredNames = getFilesNames();
+
+        if (filter.isContainsNumber()) {
+            List<String> pointResult = new ArrayList<>();
+            for (String name : filteredNames){
+                if (name.matches(".*\\d+.*\n*")){
+                    pointResult.add(name);
+                }
+            }
+            filteredNames = pointResult;
+        }
+        if (filter.isContainsChar()){
+            List<String> pointResult = new ArrayList<>();
+            for (String name : filteredNames){
+                if (name.matches(".*\\D+.*\n*")){
+                    pointResult.add(name);
+                }
+            }
+            filteredNames = pointResult;
+        }
+        if (filter.getContainsWord() != null){
+            List<String> pointResult = new ArrayList<>();
+            for (String name : filteredNames){
+                if (name.contains(filter.getContainsWord())){
+                    pointResult.add(name);
+                }
+            }
+            filteredNames = pointResult;
+        }
+
+        return filteredNames;
     }
 
     private List<String> getAllFilesInDir(File file) {

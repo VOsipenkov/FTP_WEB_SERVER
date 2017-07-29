@@ -5,6 +5,8 @@
     <title>$Title$</title>
 </head>
 <body>
+<%@page pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("UTF-8");%>
 HELLO
 <%
     //case for anonimous enter and return to start page
