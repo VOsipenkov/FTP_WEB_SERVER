@@ -15,12 +15,5 @@
             java.lang.String listFiles(java.util.List)
         </function-signature>
     </function>
-    <function>
-        <name>userName</name>
-        <function-class>el.methods.ListMethods</function-class>
-        <function-signature>
-            java.lang.String userName(java.lang.String)
-        </function-signature>
-    </function>
 
 </taglib>

@@ -19,12 +19,10 @@ public class LoginServlet extends HttpServlet {
             name = new String(bytes, StandardCharsets.UTF_8);
         }
 
-        if (name == null || name.equals("")) {
-            req.getSession().setAttribute("userName", "anonimous");
-        } else {
+        if (name != null){
             name = nameConverter.doCheck(name);
-            req.getSession().setAttribute("userName", name);
         }
+        req.getSession().setAttribute("userName", name);
 
         resp.sendRedirect(resp.encodeRedirectURL("./list"));
     }

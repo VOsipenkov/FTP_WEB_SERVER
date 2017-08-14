@@ -7,7 +7,9 @@
 <p align="center">FTP_SERVER: list files</p>
 
 <%@ taglib prefix="lists" uri="ElFunctions" %>
-<%@page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8"%>
+
 <%request.setCharacterEncoding("UTF-8");%>
 <form method="get" action="<%= response.encodeURL("precall")%>">
 
@@ -18,11 +20,11 @@
     <p><input name="action" type="radio" value="download"> Download</p>
     <p><input name="action" type="radio" value="upload"> Add file</p>
     <br>
-    <input type="submit" name="Update">
+    <input type="submit" name="Update" VALUE="UPDATE">
 
     <br><br><br><br><br>
     <p align="right"><font color="black">
-        ${lists:userName(sessionScope.userName)}
+        <c:out value="${userName}" default="guest"/>
     </font></p>
 </form>
 

@@ -14,8 +14,4 @@ public class ListMethods {
 
         return  res.toString();
     }
-
-    public static String userName(String name){
-        return name;
-    }
 }
