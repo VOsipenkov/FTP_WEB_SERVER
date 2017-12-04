@@ -13,5 +13,5 @@ public interface FileHandler {
 
     public boolean deleteFile(String fileName);
 
-    public boolean addFile(String name, InputStream inputStream);
+    public boolean addFile(String name, InputStream inputStream, Long size, String author);
 }

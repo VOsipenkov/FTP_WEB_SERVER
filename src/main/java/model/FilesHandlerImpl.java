@@ -103,7 +103,7 @@ public class FilesHandlerImpl implements FileHandler {
     }
 
     @Override
-    public boolean addFile(String name, InputStream inputStream) {
+    public boolean addFile(String name, InputStream inputStream, Long size, String author) {
         File file = new File(filesPath + name);
         if (file.exists()) {
             file.delete();

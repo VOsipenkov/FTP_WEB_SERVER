@@ -95,6 +95,15 @@
         <param-value>files\\logs\\logger.txt</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>db_login</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db_password</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
     <listener>
         <listener-class>listener.ContextStartedListener</listener-class>
     </listener>

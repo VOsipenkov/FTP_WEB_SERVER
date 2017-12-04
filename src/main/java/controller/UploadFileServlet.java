@@ -26,10 +26,13 @@ public class UploadFileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Part filePart = req.getPart("file"); // Retrieves <input type="file" name="file">
+
         String fileName = getSubmittedFileName(filePart);
+        Long size = getSize(filePart);
+        String author = (String)req.getSession().getAttribute("userName");
         InputStream fileContent = filePart.getInputStream();
 
-        boolean success = model.addFile(fileName, fileContent);
+        boolean success = model.addFile(fileName, fileContent, size, author);
         fileContent.close();
 
         resp.sendRedirect(resp.encodeRedirectURL("./list"));
@@ -44,5 +47,9 @@ public class UploadFileServlet extends HttpServlet {
             }
         }
         return null;
+    }
+
+    private static long getSize(Part part){
+        return part.getSize();
     }
 }
