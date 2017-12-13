@@ -9,7 +9,6 @@ import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 public class DbFileHandlerImpl implements FileHandler {
@@ -63,6 +62,18 @@ public class DbFileHandlerImpl implements FileHandler {
 
     @Override
     public boolean deleteFile(String fileName) {
+        if (fileName == null) return false;
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(Queries.DELETE_FILE);
+            preparedStatement.setString(1, fileName.trim());
+            preparedStatement.executeUpdate();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 

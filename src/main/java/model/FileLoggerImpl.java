@@ -15,6 +15,7 @@ public class FileLoggerImpl implements FileLogger {
     public void log(String message) {
         try {
             Files.write(Paths.get(path), message.getBytes());
+            System.out.println(message);
         } catch (IOException e) {
             e.printStackTrace();
         }

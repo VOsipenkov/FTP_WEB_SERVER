@@ -2,8 +2,10 @@ package controller;
 
 import model.FileHandler;
 import model.FileLogger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +13,7 @@ import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
 
-@MultipartConfig
+@WebServlet
 public class UploadFileServlet extends HttpServlet {
     private FileHandler model;
     private FileLogger logger;
@@ -29,7 +31,7 @@ public class UploadFileServlet extends HttpServlet {
 
         String fileName = getSubmittedFileName(filePart);
         Long size = getSize(filePart);
-        String author = (String)req.getSession().getAttribute("userName");
+        String author = (String) req.getSession().getAttribute("userName");
         InputStream fileContent = filePart.getInputStream();
 
         boolean success = model.addFile(fileName, fileContent, size, author);
@@ -49,7 +51,7 @@ public class UploadFileServlet extends HttpServlet {
         return null;
     }
 
-    private static long getSize(Part part){
+    private static long getSize(Part part) {
         return part.getSize();
     }
 }

@@ -15,6 +15,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ContextStartedListener implements ServletContextListener {
+    FileLogger logger;
     private Connection connectionForClosing;
     private static final String TIMEZONE_CONF = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
@@ -29,12 +30,16 @@ public class ContextStartedListener implements ServletContextListener {
                 e.printStackTrace();
             }
         }
-        FileLogger logger = new FileLoggerImpl(path);
+        logger = new FileLoggerImpl(path);
         servletContextEvent.getServletContext().setAttribute("logger", logger);
 
         initDBSystemRepo(servletContextEvent);
     }
 
+    @Deprecated
+    /*
+        Used before db connection. Use initDBSystemRepo instead.
+     */
     private void initFileSystemRepo(ServletContextEvent servletContextEvent) {
         String path = servletContextEvent.getServletContext().getInitParameter("filesRepoPath");
         FileHandler fileHandler = new FilesHandlerImpl(path);
@@ -44,17 +49,14 @@ public class ContextStartedListener implements ServletContextListener {
 
     private void initDBSystemRepo(ServletContextEvent servletContextEvent) {
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ftp_db" + TIMEZONE_CONF, "root", "root");
-//            servletContextEvent.getServletContext().setAttribute("connection", connection);
-//            connectionForClosing = connection;
             FileHandler fileHandler = new DbFileHandlerImpl(connection);
             servletContextEvent.getServletContext().setAttribute("fileHandler", fileHandler);
-            System.out.println("Connected to db successful");
+            logger.log("connected to db successfully");
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -62,7 +64,7 @@ public class ContextStartedListener implements ServletContextListener {
         if (connectionForClosing != null) {
             try {
                 connectionForClosing.close();
-                System.out.println("Connection to db closed successful");
+                logger.log("Connection to db closed successful");
             } catch (SQLException e) {
                 e.printStackTrace();
             }

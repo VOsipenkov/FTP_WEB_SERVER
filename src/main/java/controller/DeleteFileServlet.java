@@ -14,7 +14,6 @@ public class DeleteFileServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        super.init();
         model = (FileHandler) getServletContext().getAttribute("fileHandler");
         logger = (FileLogger) getServletContext().getAttribute("logger");
     }
